@@ -15,9 +15,9 @@ sudo python setup.py sdist bdist_wheel
 Basic functionality completed
 
 # pending :
-fix top nav-bar 
-may be logs
-tests
+fix top nav-bar,
+may be logs,
+tests,
 automate run of backend in cherrypy app?
 
 
