@@ -11,10 +11,10 @@ Build:
 sudo python setup.py sdist bdist_wheel
 ```
 
-#Status:
+# Status:
 Basic functionality completed
 
-#pending :
+# pending :
 fix top nav-bar 
 may be logs
 tests
