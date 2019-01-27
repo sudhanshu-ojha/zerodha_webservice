@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="table-responsive">
+<div class="container">
+    <table class="table table-bordered table-dark table-striped">
+        <caption>Top 10 Stocks-Bhav Copy!</caption>
+  <thead class="text-center bg-primary">
+    <tr>
+		{% for item in heading %}
+        <th scope="col">{{item}}</th>
+		{% endfor %}
+    </tr>
+  </thead>
+  <tbody>
+      {% for key, value in eqdata.items() %}
+      <tr>
+        <th scope="row">{{key}}</th>
+        {% for val in value %}
+        <td>{{val}}</td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+  </tbody>
+    </table>
+</div>
+</div>
+{% endblock %}

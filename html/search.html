@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="table-responsive">
+<div class="container">
+    <table class="table table-bordered table-dark table-striped">
+        <caption>Search Results</caption>
+  <thead class="text-center bg-primary">
+    <tr>
+		{% for item in heading %}
+        <th scope="col">{{item}}</th>
+		{% endfor %}
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        {% for val in result %}
+          <th scope="row">{{val}}</th>
+        {% endfor %}
+      </tr>
+  </tbody>
+    </table>
+</div>
+</div>
+{% endblock %}
