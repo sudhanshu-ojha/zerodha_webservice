@@ -22,6 +22,7 @@ class EquityTopTEn(object):
 
 
 if __name__ == '__main__':
+    write_data()
     config = {
         'global': {
             'server.socket_host': '0.0.0.0',
