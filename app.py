@@ -22,7 +22,7 @@ class EquityTopTEn(object):
 
 
 if __name__ == '__main__':
-    cherrypy.engine.housekeeper = cherrypy.process.plugins.BackgroundTask(21600, write_data())
+    cherrypy.engine.housekeeper = cherrypy.process.plugins.BackgroundTask(21600, write_data()) # needs to be set at market refresh time
     cherrypy.engine.housekeeper.start()
     config = {
         'global': {
