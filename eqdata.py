@@ -1,7 +1,6 @@
 #!/usr/bin/env/ python
 """Process BSE's equity file and store in redis"""
 
-
 from urllib.request import urlretrieve
 import zipfile
 import time
@@ -12,8 +11,8 @@ REDIS_HOST = 'localhost'
 conn = redis.Redis(REDIS_HOST)
 
 
-#today = time.strftime("%d%m%y")
-today = '250119'
+today = time.strftime("%d%m%y")
+#today = '250119'
 base_url = "https://www.bseindia.com/download/BhavCopy/Equity/EQ" + today + "_CSV.ZIP"
 filename = "EQ" + today + "_CSV.ZIP"
 csv_filename = "./CSVFiles/" + "EQ" + today + ".CSV"
@@ -77,7 +76,6 @@ def search(name, seq=conn.keys()):
         detail = conn.lrange(item, 0, -1)
         tempx_name = detail[0].decode('utf-8')
         temp_name = tempx_name.strip()
-        #print(temp_name)
         if temp_name == name:
             d_item = item.decode('utf-8')
             result.append(d_item)
@@ -90,5 +88,3 @@ def search(name, seq=conn.keys()):
 if __name__ == '__main__':
     conn.flushall()
     write_data()
-    x = search(name='HDFC')
-    print(x)
