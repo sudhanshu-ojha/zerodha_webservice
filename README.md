@@ -5,7 +5,7 @@ Module for displaying the stock details extracted from BSE's BhavCopy
 Requires a few modules in requirements, but then you are moving..
 
 # Status:
-Basic functionality completed
+Basic functionality completed,
 hosted on AWS
 # pending :
 fix top nav-bar,
