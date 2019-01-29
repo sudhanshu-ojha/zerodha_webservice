@@ -1,6 +1,7 @@
 #!/usr/bin/env/ python
 """Process BSE's equity file and store in redis"""
 
+
 from urllib.request import urlretrieve
 import zipfile
 import time
@@ -12,7 +13,6 @@ conn = redis.Redis(REDIS_HOST)
 
 
 today = time.strftime("%d%m%y")
-#today = '250119'
 base_url = "https://www.bseindia.com/download/BhavCopy/Equity/EQ" + today + "_CSV.ZIP"
 filename = "EQ" + today + "_CSV.ZIP"
 csv_filename = "./CSVFiles/" + "EQ" + today + ".CSV"
@@ -44,6 +44,7 @@ def store_data(r_id, r_details):
 
 def write_data():
     try:
+        conn.flushall()
         download_extract(base_url)
     except:
         print("The file you are looking for is not updated yet!! "
@@ -82,9 +83,11 @@ def search(name, seq=conn.keys()):
             for i in detail:
                 d = i.decode('utf-8')
                 result.append(d)
+            break
     return result
 
 
 if __name__ == '__main__':
-    conn.flushall()
     write_data()
+    x = search(name='HDFC')
+    print(x)
